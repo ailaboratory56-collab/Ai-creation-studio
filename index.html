@@ -3,129 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Creation Studio</title>
+  <title>AI Voice Generator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #333;
+      background: #f9f9f9;
+      padding: 20px;
     }
-    .screen {
-      display: none;
-      padding: 40px;
-      text-align: center;
-    }
-    .active {
-      display: block;
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
     h1 {
-      color: #222;
+      text-align: center;
+      color: #444;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
     button {
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
       background: #007bff;
       color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
     }
     button:hover {
       background: #0056b3;
     }
-    .nav {
-      margin: 20px 0;
-    }
-    .feature-btn {
-      background: #28a745;
-    }
-    .feature-btn:hover {
-      background: #1e7e34;
+    audio {
+      width: 100%;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>🎤 AI Voice Generator</h1>
 
-  <!-- Screen 1: Welcome -->
-  <div id="welcome" class="screen active">
-    <h1>Welcome to AI Creation Studio 🎉</h1>
-    <p>Create Graphics, Animations, TTS, Videos & More!</p>
-    <button onclick="showScreen('login')">Sign Up / Login</button>
+    <label for="language">Select Language:</label>
+    <select id="language">
+      <option>English</option>
+      <option>Hindi</option>
+      <option>Tamil</option>
+      <option>Telugu</option>
+      <option>Spanish</option>
+      <option>French</option>
+      <option>Italian</option>
+      <option>Japanese</option>
+      <option>Chinese</option>
+      <option>Bengali</option>
+      <option>Khasi</option>
+      <option>Garo</option>
+      <option>Jaintia</option>
+      <option>Assamese</option>
+    </select>
+
+    <label for="voiceType">Select Voice Type:</label>
+    <select id="voiceType">
+      <option>Kids Voice</option>
+      <option>Cartoon Characters</option>
+      <option>Animation Film</option>
+    </select>
+
+    <label for="subVoice">Choose Specific Voice:</label>
+    <select id="subVoice">
+      <option>Child Boy</option>
+      <option>Child Girl</option>
+      <option>Cute Baby Tone</option>
+      <option>Mickey Style</option>
+      <option>Doraemon Style</option>
+      <option>Chipmunk Funny</option>
+      <option>Robot Cartoon</option>
+      <option>Hero Voice</option>
+      <option>Villain Voice</option>
+      <option>Funny Sidekick</option>
+      <option>Old Storyteller</option>
+    </select>
+
+    <label for="text">Enter Your Text:</label>
+    <textarea id="text" rows="4" placeholder="Type something..."></textarea>
+
+    <button onclick="generateVoice()">Generate Voice</button>
+
+    <audio id="player" controls></audio>
   </div>
 
-  <!-- Screen 2: Login/Signup -->
-  <div id="login" class="screen">
-    <h1>Login / Sign Up</h1>
-    <p>Login with your account or use Google</p>
-    <button onclick="showScreen('dashboard')">Continue</button>
-    <br><br>
-    <button onclick="showScreen('welcome')">⬅ Back</button>
-  </div>
-
-  <!-- Screen 3: Dashboard -->
-  <div id="dashboard" class="screen">
-    <h1>Dashboard</h1>
-    <p>Select a feature below 👇</p>
-    <div class="nav">
-      <button class="feature-btn" onclick="showScreen('graphic')">🎨 Graphic Creator</button>
-      <button class="feature-btn" onclick="showScreen('animation')">🌀 Animation Creator</button>
-      <button class="feature-btn" onclick="showScreen('tts')">🔊 TTS Creator</button>
-      <button class="feature-btn" onclick="showScreen('ttv')">🎥 TTV Creator</button>
-      <button class="feature-btn" onclick="showScreen('script')">📝 Script Creator</button>
-      <button class="feature-btn" onclick="showScreen('idea')">💡 Unique Idea Creator</button>
-    </div>
-    <button onclick="showScreen('welcome')">⬅ Logout</button>
-  </div>
-
-  <!-- Feature Screens -->
-  <div id="graphic" class="screen">
-    <h1>🎨 Graphic Creator</h1>
-    <p>Graphic creation tool will be here.</p>
-    <button onclick="showScreen('dashboard')">⬅ Back</button>
-  </div>
-
-  <div id="animation" class="screen">
-    <h1>🌀 Animation Creator</h1>
-    <p>Animation tool will be here.</p>
-    <button onclick="showScreen('dashboard')">⬅ Back</button>
-  </div>
-
-  <div id="tts" class="screen">
-    <h1>🔊 TTS Creator</h1>
-    <p>Convert text to speech here.</p>
-    <button onclick="showScreen('dashboard')">⬅ Back</button>
-  </div>
-
-  <div id="ttv" class="screen">
-    <h1>🎥 TTV Creator</h1>
-    <p>Turn text into video here.</p>
-    <button onclick="showScreen('dashboard')">⬅ Back</button>
-  </div>
-
-  <div id="script" class="screen">
-    <h1>📝 Script Creator</h1>
-    <p>Generate video scripts here.</p>
-    <button onclick="showScreen('dashboard')">⬅ Back</button>
-  </div>
-
-  <div id="idea" class="screen">
-    <h1>💡 Unique Idea Creator</h1>
-    <p>AI will generate creative ideas here.</p>
-    <button onclick="showScreen('dashboard')">⬅ Back</button>
-  </div>
-
-  <!-- JS for screen switching -->
   <script>
-    function showScreen(screenId) {
-      document.querySelectorAll('.screen').forEach(screen => {
-        screen.classList.remove('active');
-      });
-      document.getElementById(screenId).classList.add('active');
+    function generateVoice() {
+      const text = document.getElementById("text").value;
+      if (!text) {
+        alert("Please enter text first!");
+        return;
+      }
+
+      // 🔊 Demo ke liye ek sample audio file play karega
+      document.getElementById("player").src =
+        "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+
+      document.getElementById("player").play();
     }
   </script>
-
 </body>
 </html>
