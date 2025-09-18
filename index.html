@@ -3,118 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Voice Generator</title>
+  <title>AI Creation Studio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 20px;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #444;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 15px;
-    }
-    select, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    audio {
-      width: 100%;
-      margin-top: 20px;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+    header { background: #4a90e2; color: #fff; padding: 15px; text-align: center; }
+    .screen { display: none; padding: 20px; }
+    .active { display: block; }
+    .btn { display: inline-block; margin: 10px; padding: 10px 20px; background: #4a90e2; color: #fff; text-decoration: none; border-radius: 5px; cursor: pointer; }
+    .card { background: #fff; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    h2 { color: #333; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎤 AI Voice Generator</h1>
+  <header>
+    <h1>AI Creation Studio</h1>
+  </header>
 
-    <label for="language">Select Language:</label>
-    <select id="language">
-      <option>English</option>
-      <option>Hindi</option>
-      <option>Tamil</option>
-      <option>Telugu</option>
-      <option>Spanish</option>
-      <option>French</option>
-      <option>Italian</option>
-      <option>Japanese</option>
-      <option>Chinese</option>
-      <option>Bengali</option>
-      <option>Khasi</option>
-      <option>Garo</option>
-      <option>Jaintia</option>
-      <option>Assamese</option>
-    </select>
+  <!-- Welcome Screen -->
+  <div id="welcome" class="screen active">
+    <h2>Welcome to AI Creation Studio 🎉</h2>
+    <p>Create animations, voices, scripts, and more!</p>
+    <button class="btn" onclick="showScreen('signup')">Sign Up (Gmail)</button>
+    <button class="btn" onclick="showScreen('login')">Login (Facebook / Phone)</button>
+  </div>
 
-    <label for="voiceType">Select Voice Type:</label>
-    <select id="voiceType">
-      <option>Kids Voice</option>
-      <option>Cartoon Characters</option>
-      <option>Animation Film</option>
-    </select>
+  <!-- Sign Up -->
+  <div id="signup" class="screen">
+    <h2>Sign Up</h2>
+    <p>Use your Gmail to sign up.</p>
+    <button class="btn" onclick="showScreen('dashboard')">Continue</button>
+  </div>
 
-    <label for="subVoice">Choose Specific Voice:</label>
-    <select id="subVoice">
-      <option>Child Boy</option>
-      <option>Child Girl</option>
-      <option>Cute Baby Tone</option>
-      <option>Mickey Style</option>
-      <option>Doraemon Style</option>
-      <option>Chipmunk Funny</option>
-      <option>Robot Cartoon</option>
-      <option>Hero Voice</option>
-      <option>Villain Voice</option>
-      <option>Funny Sidekick</option>
-      <option>Old Storyteller</option>
-    </select>
+  <!-- Login -->
+  <div id="login" class="screen">
+    <h2>Login</h2>
+    <p>Login using Facebook or Contact Number.</p>
+    <button class="btn" onclick="showScreen('dashboard')">Login</button>
+  </div>
 
-    <label for="text">Enter Your Text:</label>
-    <textarea id="text" rows="4" placeholder="Type something..."></textarea>
+  <!-- Dashboard -->
+  <div id="dashboard" class="screen">
+    <h2>Main Features (Dashboard)</h2>
+    <div class="card"><button class="btn" onclick="showScreen('tts')">TTS Creator</button></div>
+    <div class="card"><button class="btn" onclick="showScreen('graphic')">Image/Graphic Creator</button></div>
+    <div class="card"><button class="btn" onclick="showScreen('cartoon')">Cartoon Character Creator</button></div>
+    <div class="card"><button class="btn" onclick="showScreen('animation')">Animation Creator</button></div>
+    <div class="card"><button class="btn" onclick="showScreen('video')">Video Animations Creator</button></div>
+    <div class="card"><button class="btn" onclick="showScreen('script')">Script Creator</button></div>
+    <div class="card"><button class="btn" onclick="showScreen('subscription')">Subscription Plans</button></div>
+  </div>
 
-    <button onclick="generateVoice()">Generate Voice</button>
+  <!-- TTS Screen -->
+  <div id="tts" class="screen">
+    <h2>Text to Speech (TTS) Creator</h2>
+    <p>Languages Supported:</p>
+    <ul>
+      <li>English, Hindi, Tamil, Telugu</li>
+      <li>Spanish, French, Italian, Japanese</li>
+      <li>Chinese, Bengali, Khasi, Garo</li>
+      <li>Jaintia, Assamese</li>
+    </ul>
+    <p>Voices:</p>
+    <ul>
+      <li>Child Voice</li>
+      <li>Cartoon Characters</li>
+      <li>Animation Film Voices</li>
+      <li>Nezha, Aubing, Kung Fu Panda</li>
+    </ul>
+    <button class="btn" onclick="showScreen('dashboard')">Back</button>
+  </div>
 
-    <audio id="player" controls></audio>
+  <!-- Other Feature Pages -->
+  <div id="graphic" class="screen"><h2>Image/Graphic Creator</h2><button class="btn" onclick="showScreen('dashboard')">Back</button></div>
+  <div id="cartoon" class="screen"><h2>Cartoon Character Creator</h2><button class="btn" onclick="showScreen('dashboard')">Back</button></div>
+  <div id="animation" class="screen"><h2>Animation Creator</h2><button class="btn" onclick="showScreen('dashboard')">Back</button></div>
+  <div id="video" class="screen"><h2>Video Animations Creator</h2><button class="btn" onclick="showScreen('dashboard')">Back</button></div>
+  <div id="script" class="screen"><h2>Script Creator</h2><button class="btn" onclick="showScreen('dashboard')">Back</button></div>
+
+  <!-- Subscription -->
+  <div id="subscription" class="screen">
+    <h2>Subscription Plan</h2>
+    <p><b>3 Years 7 Months</b> - Full Access</p>
+    <button class="btn" onclick="showScreen('dashboard')">Back</button>
   </div>
 
   <script>
-    function generateVoice() {
-      const text = document.getElementById("text").value;
-      if (!text) {
-        alert("Please enter text first!");
-        return;
-      }
-
-      // 🔊 Demo ke liye ek sample audio file play karega
-      document.getElementById("player").src =
-        "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-
-      document.getElementById("player").play();
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
   </script>
 </body>
