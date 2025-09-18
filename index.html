@@ -1,65 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Creation Studio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 2.5em;
-        }
-        textarea {
-            width: 80%;
-            height: 150px;
-            margin: 20px 0;
-            border-radius: 10px;
-            border: none;
-            padding: 15px;
-            font-size: 1.2em;
-        }
-        button {
-            background: #ff9800;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #e68900;
-        }
-        audio {
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Creation Studio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+    }
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #0073e6;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff6600;
+    }
+    section {
+      padding: 20px;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: #222;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-    <h1>🎙️ AI Creation Studio</h1>
-    <p>Type your text below and hear it as speech!</p>
-    <textarea id="textInput" placeholder="Type something..."></textarea><br>
-    <button onclick="speakText()">Convert to Speech</button>
-    <audio id="audioPlayer" controls></audio>
+  <header>
+    <h1>Welcome to AI Creation Studio</h1>
+  </header>
 
-    <script>
-        async function speakText() {
-            const text = document.getElementById("textInput").value;
-            if (!text) {
-                alert("Please type some text first!");
-                return;
-            }
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="shipping.html">Shipping Policy</a>
+  </nav>
 
-            // Example: Convert text into speech (dummy for now)
-            const audio = document.getElementById("audioPlayer");
-            audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-            audio.play();
-        }
-    </script>
+  <section>
+    <h2>About Us</h2>
+    <p>Yahan aap apna AI projects aur tools explore kar sakte ho.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AI Creation Studio. All rights reserved.</p>
+  </footer>
 </body>
 </html>
