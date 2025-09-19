@@ -1,75 +1,140 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Creation Studio - Demo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Creation Studio</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background: #f4f4f9; }
-    header { background: #4CAF50; color: white; padding: 20px; font-size: 24px; }
-    .container { padding: 20px; }
-    .button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px; }
-    .button:hover { background: #45a049; }
-    .feature-list { list-style: none; padding: 0; }
-    .feature-list li { margin: 10px 0; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header, footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+    }
+    nav button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    nav button:hover { background: #0056b3; }
+    .screen { display: none; padding: 20px; }
+    .active { display: block; }
+    .feature {
+      background: #fff;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1,h2 { color: #222; }
+    .plans div {
+      background: #fff;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    a { color: #007BFF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <header>Welcome to AI Creation Studio (Demo)</header>
+  <header>
+    <h1>AI Creation Studio</h1>
+    <p>Welcome to your AI-powered creative platform</p>
+  </header>
 
-  <div class="container" id="welcome">
-    <h2>Welcome!</h2>
-    <p>Please sign up or log in to continue.</p>
-    <button class="button" onclick="showDashboard()">Sign Up with Gmail</button>
-    <button class="button" onclick="showDashboard()">Login with Facebook</button>
-    <button class="button" onclick="showDashboard()">Login with Contact Number</button>
+  <nav>
+    <button onclick="showScreen('welcome')">Welcome</button>
+    <button onclick="showScreen('dashboard')">Dashboard</button>
+    <button onclick="showScreen('plans')">Subscriptions</button>
+    <button onclick="showScreen('policies')">Policies</button>
+  </nav>
+
+  <!-- Welcome Screen -->
+  <div id="welcome" class="screen active">
+    <h2>Welcome Note</h2>
+    <p>Swagat hai aapka AI Creation Studio mein. Create animations, voices, scripts and much more!</p>
+    <button>Sign Up with Gmail</button>
+    <button>Login with Facebook</button>
+    <button>Login with Phone (India)</button>
   </div>
 
-  <div class="container" id="dashboard" style="display:none;">
+  <!-- Dashboard -->
+  <div id="dashboard" class="screen">
     <h2>Main Features</h2>
-    <ul class="feature-list">
-      <li onclick="alert('TTS Creator Demo')">🎙️ TTS Creator</li>
-      <li onclick="alert('Language Selector Demo')">🌍 Language Selector</li>
-      <li onclick="alert('Video Animation Creator Demo')">🎬 Video Animations Creator</li>
-      <li onclick="alert('Script Creator Demo')">✍️ Script Creator</li>
-    </ul>
 
-    <h3>Subscription Plan</h3>
-    <p>Access all features for <strong>3 years 7 months</strong>.</p>
-    <button class="button" id="rzp-button1">Subscribe (Demo ₹1)</button>
+    <div class="feature">
+      <h3>1. TTS (Text-to-Speech) Creator</h3>
+      <ul>
+        <li>Multi-language supports (English, Hindi, Tamil, Telugu, Spanish, French, Italian, Japanese, Chinese, Bengali, Khasi, Garo, Jaintia, Assamese)</li>
+        <li>Voices: Kids, Cartoon Characters, Bollywood Actors, South Indian Actors, Animation Film Characters</li>
+      </ul>
+    </div>
+
+    <div class="feature">
+      <h3>2. TTAG (Text-to-Animation Graphics) Creator</h3>
+      <p>Generate creative animated graphics directly from text input.</p>
+    </div>
+
+    <div class="feature">
+      <h3>3. TTAC (Text-to-Animation Characters) Creator</h3>
+      <p>Create animated characters from your text description.</p>
+    </div>
+
+    <div class="feature">
+      <h3>4. AI Script Creator</h3>
+      <p>Get instant scripts generated with AI for your projects.</p>
+    </div>
+
+    <div class="feature">
+      <h3>5. Video Animations Creator</h3>
+      <p>Convert your text/scripts into professional video animations.</p>
+    </div>
   </div>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <!-- Subscription Plans -->
+  <div id="plans" class="screen">
+    <h2>Subscription Plans</h2>
+    <div class="plans">
+      <div><b>Free Trial:</b> 2 Days</div>
+      <div><b>₹499:</b> 3 Months</div>
+      <div><b>₹999:</b> 6 Months</div>
+      <div><b>₹2099:</b> 2 Years 5 Months (Special Plan)</div>
+    </div>
+    <button>Subscribe Now (via Razorpay)</button>
+  </div>
+
+  <!-- Policies -->
+  <div id="policies" class="screen">
+    <h2>Our Policies</h2>
+    <ul>
+      <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="shipping.html">Shipping Policy</a></li>
+      <li><a href="cancellation-refund.html">Cancellation & Refund</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AI Creation Studio | All Rights Reserved</p>
+  </footer>
+
   <script>
-    function showDashboard() {
-      document.getElementById('welcome').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'block';
-    }
-
-    var options = {
-      "key": "rzp_test_1234567890abcdef", // Demo Razorpay key (replace with real in production)
-      "amount": "100", // amount in paise = ₹1
-      "currency": "INR",
-      "name": "AI Creation Studio Demo",
-      "description": "Test Subscription",
-      "handler": function (response){
-          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-      },
-      "prefill": {
-          "name": "Demo User",
-          "email": "demo@example.com",
-          "contact": "9999999999"
-      },
-      "theme": {
-          "color": "#4CAF50"
-      }
-    };
-
-    var rzp1 = new Razorpay(options);
-    document.getElementById('rzp-button1').onclick = function(e){
-      rzp1.open();
-      e.preventDefault();
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
   </script>
 </body>
